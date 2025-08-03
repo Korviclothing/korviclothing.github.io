@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Korvi Clothing</title>
+  <title>Korvi Clothing - Home</title>
   <style>
     body {
       background-color: black;
@@ -51,24 +51,26 @@
     }
     .product .buttons {
       margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
     .buttons button {
-      margin: 5px;
-      padding: 8px 12px;
+      padding: 10px;
       font-weight: bold;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      background-color: black;
+      color: white;
     }
-    .buy { background-color: #28a745; color: white; }
-    .cart { background-color: #007bff; color: white; }
   </style>
 </head>
 <body>
   <header>
     <h1>KORVI</h1>
     <nav>
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="tops.html">Tops</a>
       <a href="#" class="contact" onclick="contact()">Contact</a>
     </nav>
@@ -80,8 +82,8 @@
       <p>Drake</p>
       <p>Rs. 2999</p>
       <div class="buttons">
-        <button class="buy" onclick="buy('Drake')">Buy Now</button>
-        <button class="cart" onclick="addToCart('Drake')">Add to Cart</button>
+        <button onclick="buy('Drake')">Buy Now</button>
+        <button onclick="addToCart('Drake')">Add to Cart</button>
       </div>
     </div>
     <div class="product">
@@ -89,35 +91,8 @@
       <p>Weeknd</p>
       <p>Rs. 2999</p>
       <div class="buttons">
-        <button class="buy" onclick="buy('Weeknd')">Buy Now</button>
-        <button class="cart" onclick="addToCart('Weeknd')">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product">
-      <img src="wrecked.jpg" alt="Wrecked Shirt">
-      <p>Wrecked</p>
-      <p>Rs. 2999</p>
-      <div class="buttons">
-        <button class="buy" onclick="buy('Wrecked')">Buy Now</button>
-        <button class="cart" onclick="addToCart('Wrecked')">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product">
-      <img src="david.jpg" alt="David Shirt">
-      <p>David</p>
-      <p>Rs. 2999</p>
-      <div class="buttons">
-        <button class="buy" onclick="buy('David')">Buy Now</button>
-        <button class="cart" onclick="addToCart('David')">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product">
-      <img src="buried.jpg" alt="Buried in Thoughts">
-      <p>Buried in Thoughts</p>
-      <p>Rs. 2499</p>
-      <div class="buttons">
-        <button class="buy" onclick="buy('Buried in Thoughts')">Buy Now</button>
-        <button class="cart" onclick="addToCart('Buried in Thoughts')">Add to Cart</button>
+        <button onclick="buy('Weeknd')">Buy Now</button>
+        <button onclick="addToCart('Weeknd')">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -143,16 +118,8 @@
       const address = prompt("Enter your address:");
       const contact = prompt("Enter your contact number:");
       const email = prompt("Enter your email:");
-      const message = `
-New COD Order:
-Product: ${product}
-Size: ${size}
-Name: ${name}
-Address: ${address}
-Contact: ${contact}
-Email: ${email}`;
+      const message = `\nNew COD Order:\nProduct: ${product}\nSize: ${size}\nName: ${name}\nAddress: ${address}\nContact: ${contact}\nEmail: ${email}`;
       alert("Thank you! Your order has been placed.");
-      // Send details to email manually via backend or Gmail forwarding
     }
 
     function addToCart(product) {
