@@ -1,118 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Korvi Clothing - Featured Shirts</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tops - Korvi</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
   <style>
     body {
       background-color: black;
       color: white;
-      font-family: 'Anton', sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
+
     header {
-      text-align: center;
-      padding: 2rem 1rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #111;
       border-bottom: 1px solid white;
     }
+
     header h1 {
-      font-size: 3rem;
-      margin: 0;
+      font-size: 24px;
     }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
+
     nav a {
+      margin: 0 10px;
       color: white;
       text-decoration: none;
-      border: 1px solid white;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
     }
-    .products {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      padding: 2rem;
+
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
     }
+
     .product {
-      text-align: center;
-      border: 1px solid white;
-      padding: 1rem;
+      background-color: black;
+      padding: 10px;
       border-radius: 10px;
-      width: 90%;
-      max-width: 400px;
+      border: 1px solid #444;
+      text-align: center;
     }
+
     .product img {
       width: 100%;
-      height: auto;
+      max-height: 300px;
+      object-fit: cover;
       border-radius: 10px;
     }
+
+    .product p {
+      color: white;
+      margin: 10px 0;
+    }
+
     .buttons {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 1rem;
+      gap: 10px;
     }
+
     .buttons button {
       background-color: black;
       color: white;
       border: 1px solid white;
-      padding: 0.5rem;
-      border-radius: 5px;
+      padding: 10px;
       cursor: pointer;
+      border-radius: 5px;
     }
-    #cartButton {
+
+    .cart-icon {
       position: fixed;
       bottom: 20px;
       right: 20px;
       background: white;
       border-radius: 50%;
-      padding: 15px;
+      padding: 10px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      z-index: 100;
     }
-    #cartButton img {
-      width: 24px;
-      height: 24px;
-    }
-    #cartContainer {
+
+    .cart {
       display: none;
       position: fixed;
-      right: 20px;
+      right: 10px;
       bottom: 80px;
-      background-color: black;
-      color: white;
+      background: #222;
       border: 1px solid white;
-      padding: 1rem;
+      padding: 20px;
       max-width: 300px;
-      z-index: 99;
+      z-index: 100;
     }
+
     .cart-item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-    }
-    .cart-item button {
-      background-color: red;
-      color: white;
-      border: none;
-      padding: 0.2rem 0.5rem;
-      cursor: pointer;
-      border-radius: 3px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid white;
+      padding-bottom: 10px;
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>KORVI</h1>
@@ -123,113 +122,100 @@
     </nav>
   </header>
 
-  <section class="products">
-    <h2>Featured Shirts</h2>
-
-    <div class="product">
-      <img src="drake.jpg" alt="Drake Shirt">
-      <p>Drake Shirt - Rs.2999</p>
-      <div class="buttons">
-        <button onclick="buyNow('Drake Shirt', 2999)">Buy Now</button>
-        <button onclick="addToCart('Drake Shirt', 2999)">Add to Cart</button>
-      </div>
-    </div>
-
-    <div class="product">
-      <img src="weeknd.jpg" alt="The Weeknd Shirt">
-      <p>The Weeknd Shirt - Rs.2999</p>
-      <div class="buttons">
-        <button onclick="buyNow('The Weeknd Shirt', 2999)">Buy Now</button>
-        <button onclick="addToCart('The Weeknd Shirt', 2999)">Add to Cart</button>
-      </div>
-    </div>
-
+  <div class="product-container">
     <div class="product">
       <img src="wrecked.jpg" alt="Wrecked Shirt">
-      <p>Wrecked Shirt - Rs.2999</p>
+      <p>Wrecked Tee - Rs. 2,999</p>
       <div class="buttons">
-        <button onclick="buyNow('Wrecked Shirt', 2999)">Buy Now</button>
-        <button onclick="addToCart('Wrecked Shirt', 2999)">Add to Cart</button>
+        <button onclick="addToCart('Wrecked Tee', 2999)">Add to Cart</button>
+        <button onclick="buyNow('Wrecked Tee', 2999)">Buy Now</button>
       </div>
     </div>
-  </section>
 
-  <div id="cartButton" onclick="toggleCart()">
-    <img src="cart-icon.png" alt="Cart">
+    <div class="product">
+      <img src="david.jpg" alt="David Shirt">
+      <p>David Tee - Rs. 2,999</p>
+      <div class="buttons">
+        <button onclick="addToCart('David Tee', 2999)">Add to Cart</button>
+        <button onclick="buyNow('David Tee', 2999)">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="buried.jpg" alt="Buried in Thoughts Shirt">
+      <p>Buried in Thoughts Tee - Rs. 2,499</p>
+      <div class="buttons">
+        <button onclick="addToCart('Buried in Thoughts Tee', 2499)">Add to Cart</button>
+        <button onclick="buyNow('Buried in Thoughts Tee', 2499)">Buy Now</button>
+      </div>
+    </div>
   </div>
 
-  <div id="cartContainer">
-    <h3>Cart</h3>
-    <div id="cartItems"></div>
-    <button onclick="checkoutCart()">Complete Order</button>
+  <div class="cart-icon" onclick="toggleCart()">
+    🛒
+  </div>
+
+  <div class="cart" id="cart">
+    <div id="cart-items"></div>
+    <button onclick="purchaseAll()">Purchase All</button>
   </div>
 
   <script>
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cart = JSON.parse(localStorage.getItem('korviCart')) || [];
 
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      localStorage.setItem('cart', JSON.stringify(cart));
-      alert(name + ' added to cart');
-      displayCart();
+    function updateCart() {
+      const cartElement = document.getElementById('cart-items');
+      cartElement.innerHTML = '';
+      cart.forEach((item, index) => {
+        cartElement.innerHTML += `
+          <div class="cart-item">
+            ${item.name} - Rs. ${item.price}
+            <button onclick="removeFromCart(${index})">Delete</button>
+          </div>
+        `;
+      });
+      localStorage.setItem('korviCart', JSON.stringify(cart));
     }
 
     function toggleCart() {
-      const container = document.getElementById('cartContainer');
-      container.style.display = container.style.display === 'block' ? 'none' : 'block';
-      displayCart();
+      const cartBox = document.getElementById('cart');
+      cartBox.style.display = cartBox.style.display === 'block' ? 'none' : 'block';
     }
 
-    function displayCart() {
-      const container = document.getElementById('cartItems');
-      container.innerHTML = '';
-      cart.forEach((item, index) => {
-        const div = document.createElement('div');
-        div.className = 'cart-item';
-        div.innerHTML = `${item.name} - Rs.${item.price} <button onclick="removeItem(${index})">X</button>`;
-        container.appendChild(div);
-      });
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCart();
     }
 
-    function removeItem(index) {
+    function removeFromCart(index) {
       cart.splice(index, 1);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      displayCart();
+      updateCart();
     }
 
     function buyNow(name, price) {
-      const size = prompt('Select Size: Small, Medium, Large');
+      const size = prompt('Select size: Small, Medium, Large');
       if (!size) return;
-      const customer = getCustomerDetails();
-      if (customer) sendOrder([{ name, price, size }], customer);
+      const customerInfo = prompt('Enter your name, contact, email, and address (separated by commas)');
+      if (!customerInfo) return;
+      const emailBody = `Item: ${name}\nSize: ${size}\nDetails: ${customerInfo}`;
+      window.location.href = `mailto:korviclothing@gmail.com?subject=New COD Order&body=${encodeURIComponent(emailBody)}`;
     }
 
-    function checkoutCart() {
-      const size = prompt('Select Size: Small, Medium, Large');
+    function purchaseAll() {
+      const size = prompt('Select size for all: Small, Medium, Large');
       if (!size) return;
-      const customer = getCustomerDetails();
-      if (customer) sendOrder(cart.map(item => ({ ...item, size })), customer);
+      const customerInfo = prompt('Enter your name, contact, email, and address (separated by commas)');
+      if (!customerInfo) return;
+      let items = '';
+      cart.forEach(item => {
+        items += `${item.name} - Rs. ${item.price}\n`;
+      });
+      const emailBody = `Items:\n${items}\nSize: ${size}\nDetails: ${customerInfo}`;
+      window.location.href = `mailto:korviclothing@gmail.com?subject=New COD Cart Order&body=${encodeURIComponent(emailBody)}`;
     }
 
-    function getCustomerDetails() {
-      const name = prompt('Enter your name');
-      const contact = prompt('Enter contact number');
-      const email = prompt('Enter email');
-      const address = prompt('Enter delivery address');
-      if (!name || !contact || !email || !address) return null;
-      return { name, contact, email, address };
-    }
-
-    function sendOrder(items, customer) {
-      const emailBody = `New Order\n\nItems:\n${items.map(i => `${i.name} - Rs.${i.price} - Size: ${i.size}`).join('\n')}\n\nCustomer Info:\nName: ${customer.name}\nContact: ${customer.contact}\nEmail: ${customer.email}\nAddress: ${customer.address}`;
-      window.open(`mailto:korviclothing@gmail.com?subject=New Order&body=${encodeURIComponent(emailBody)}`);
-      alert('Order placed!');
-      cart = [];
-      localStorage.removeItem('cart');
-      displayCart();
-    }
-
-    displayCart();
+    updateCart();
   </script>
 </body>
+
 </html>
