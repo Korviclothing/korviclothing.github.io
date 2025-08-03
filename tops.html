@@ -3,111 +3,108 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tops - Korvi Clothing</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Korvi - Tops</title>
   <style>
     body {
       background-color: black;
       color: white;
+      font-family: Arial, sans-serif;
       margin: 0;
-      font-family: sans-serif;
+      padding: 0;
     }
-
-    .nav {
-      padding: 20px;
+    header {
+      background-color: #111;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-
-    .nav a {
-      margin-right: 10px;
-      text-decoration: none;
+    header a {
       color: white;
+      text-decoration: none;
+      margin: 0 15px;
       font-weight: bold;
     }
-
-    .products {
+    .container {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
       justify-content: center;
+      gap: 20px;
       padding: 20px;
     }
-
-    .product {
-      text-align: center;
-    }
-
-    .product img {
-      width: 200px;
-      height: auto;
+    .shirt {
+      background-color: #222;
+      padding: 10px;
       border-radius: 10px;
-    }
-
-    .arrow {
-      display: inline-block;
-      font-size: 24px;
-      cursor: pointer;
-      margin-top: 5px;
-      color: white;
-    }
-
-    h1 {
       text-align: center;
-      color: white;
+      position: relative;
+      max-width: 200px;
+    }
+    .shirt img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .caption {
+      background-color: white;
+      color: black;
+      padding: 5px;
+      margin-top: 8px;
+      border-radius: 5px;
+    }
+    .arrow {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="nav">
-      <a href="index.html" class="active">Home</a>
-      <a href="tops.html">Tops</a>
-    </div>
+    <a href="index.html">Home</a>
+    <h1>Tops</h1>
   </header>
 
-  <main>
-    <h1>Our Top Collection</h1>
-    <div class="products">
-
-      <div class="product">
-        <img src="david.jpg" alt="David Shirt">
-        <p>David by Michelangelo T-Shirt</p>
-      </div>
-
-      <div class="product">
-        <img src="buried.jpg" alt="Buried Shirt">
-        <p>Buried in Thoughts T-Shirt</p>
-      </div>
-
-      <div class="product">
-        <img src="wrecked.jpg" alt="Wrecked Shirt">
-        <p>WRECKED T-Shirt</p>
-      </div>
-
-      <div class="product">
-        <img src="drake.jpg" alt="Drake Shirt">
-        <p>DRAKE T-Shirt</p>
-      </div>
-
-      <div class="product">
-        <img id="weekndImg" src="weeknd.jpg" alt="Weeknd Shirt">
-        <p>WEEKND T-Shirt</p>
-        <span class="arrow" onclick="toggleWeeknd()">↺</span>
-      </div>
-
+  <div class="container">
+    <div class="shirt">
+      <img src="drake.jpg" id="drake-img" alt="Drake Shirt">
+      <button class="arrow" onclick="toggleBack('drake-img', 'drake.jpg', 'drakeback.jpg')">→</button>
+      <div class="caption">Drake T-Shirt</div>
     </div>
-  </main>
+
+    <div class="shirt">
+      <img src="weeknd.jpg" id="weeknd-img" alt="Weeknd Shirt">
+      <button class="arrow" onclick="toggleBack('weeknd-img', 'weeknd.jpg', 'weekndback.jpg')">→</button>
+      <div class="caption">Weeknd T-Shirt</div>
+    </div>
+
+    <div class="shirt">
+      <img src="wrecked.jpg" alt="Wrecked Shirt">
+      <div class="caption">WRECKED T-Shirt</div>
+    </div>
+
+    <div class="shirt">
+      <img src="david.jpg" alt="David Shirt">
+      <div class="caption">DAVID by Michelangelo T-Shirt</div>
+    </div>
+
+    <div class="shirt">
+      <img src="buried.jpg" alt="Buried in Thoughts Shirt">
+      <div class="caption">Buried in Thoughts T-Shirt</div>
+    </div>
+  </div>
 
   <script>
-    let showingBack = false;
-    function toggleWeeknd() {
-      const img = document.getElementById("weekndImg");
-      if (!showingBack) {
-        img.src = "weekndback.jpg";
-        showingBack = true;
-      } else {
-        img.src = "weeknd.jpg";
-        showingBack = false;
-      }
+    function toggleBack(id, front, back) {
+      const img = document.getElementById(id);
+      img.src = img.src.includes(back) ? front : back;
     }
   </script>
 </body>
