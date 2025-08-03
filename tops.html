@@ -3,167 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Korvi - Tops</title>
+  <title>Tops - Korvi</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: black;
-      color: white;
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
     }
-
-    .navbar {
-      display: flex;
-      background-color: #111;
-      padding: 10px 20px;
-    }
-
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      margin-right: 20px;
+    header {
+      background-color: #000;
+      padding: 20px;
+      font-size: 24px;
       font-weight: bold;
     }
-
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 20px;
+    a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
     }
-
-    .product {
-      background-color: #222;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 15px;
-      width: 250px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    .shirt {
+      margin: 40px auto;
+      max-width: 300px;
     }
-
-    .product img {
+    .shirt img {
       width: 100%;
       border-radius: 10px;
     }
-
-    .product h3 {
+    .shirt h2 {
       margin: 10px 0 5px;
-      color: white;
+      font-size: 20px;
     }
-
-    .product p {
-      color: #ccc;
+    .shirt p {
+      margin: 0 0 10px;
+    }
+    .btn {
+      display: block;
+      width: 100%;
       margin: 5px 0;
-    }
-
-    .buttons {
-      margin-top: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .buttons button {
+      padding: 10px;
+      border: 1px solid white;
       background-color: black;
       color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .cart-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+    }
+    .cart-icon span {
+      font-size: 30px;
+      color: black;
+    }
+    .cart-box {
+      display: none;
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: white;
+      color: black;
+      padding: 15px;
+      border-radius: 10px;
+      width: 250px;
+      z-index: 999;
+      max-height: 300px;
+      overflow-y: auto;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+    .cart-box h3 {
+      margin-top: 0;
+    }
+    .cart-box ul {
+      list-style: none;
+      padding: 0;
+    }
+    .cart-box li {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    .cart-box button {
+      background: black;
+      color: white;
       border: 1px solid white;
-      padding: 10px;
-      font-weight: bold;
+      padding: 8px;
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 5px;
       cursor: pointer;
-      border-radius: 6px;
-    }
-
-    .arrow-btn {
-      background-color: transparent;
-      border: none;
-      color: #aaa;
-      font-size: 18px;
-      margin-top: 5px;
-      cursor: pointer;
-    }
-
-    @media (max-width: 600px) {
-      .product {
-        width: 90%;
-      }
     }
   </style>
 </head>
 <body>
-  <div class="navbar">
-    <a href="index.html">Home</a>
+  <header>
+    <a href="index.html">Home</a> | Tops
+  </header>
+
+  <div class="shirt">
+    <img src="drake.jpg" alt="Drake Shirt">
+    <h2>Drake Shirt</h2>
+    <p>Rs 2,999</p>
+    <button class="btn" onclick="addToCart('Drake Shirt - Rs 2,999')">Add to Cart</button>
+    <button class="btn" onclick="buyNow('Drake Shirt')">Buy Now</button>
   </div>
 
-  <div class="products">
-    <!-- Drake Shirt -->
-    <div class="product">
-      <img src="drake.jpg" alt="Drake Shirt" />
-      <h3>Drake</h3>
-      <p>Rs. 2999</p>
-      <div class="buttons">
-        <button>Buy Now</button>
-        <button>Add to Cart</button>
-      </div>
-    </div>
-
-    <!-- Weeknd Shirt with toggle -->
-    <div class="product">
-      <img id="weeknd-img" src="weeknd.jpg" alt="Weeknd Shirt" />
-      <h3>Weeknd</h3>
-      <p>Rs. 2999</p>
-      <div class="buttons">
-        <button>Buy Now</button>
-        <button>Add to Cart</button>
-        <button class="arrow-btn" onclick="toggleWeeknd()">⟲ View Back</button>
-      </div>
-    </div>
-
-    <!-- Wrecked Shirt -->
-    <div class="product">
-      <img src="wrecked.jpg" alt="Wrecked Shirt" />
-      <h3>Wrecked</h3>
-      <p>Rs. 2999</p>
-      <div class="buttons">
-        <button>Buy Now</button>
-        <button>Add to Cart</button>
-      </div>
-    </div>
-
-    <!-- David Shirt -->
-    <div class="product">
-      <img src="david.jpg" alt="David Shirt" />
-      <h3>David</h3>
-      <p>Rs. 2999</p>
-      <div class="buttons">
-        <button>Buy Now</button>
-        <button>Add to Cart</button>
-      </div>
-    </div>
-
-    <!-- Buried in Thoughts Shirt -->
-    <div class="product">
-      <img src="buried.jpg" alt="Buried in Thoughts Shirt" />
-      <h3>Buried in Thoughts</h3>
-      <p>Rs. 2499</p>
-      <div class="buttons">
-        <button>Buy Now</button>
-        <button>Add to Cart</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    let showingBack = false;
-    function toggleWeeknd() {
-      const img = document.getElementById('weeknd-img');
-      if (showingBack) {
-        img.src = 'weeknd.jpg';
-      } else {
-        img.src = 'weekndback.jpg';
-      }
-      showingBack = !showingBack;
-    }
-  </script>
-</body>
-</html>
+  <div class="shirt">
+    <img id="weeknd-img" src="weeknd.jpg" alt="Weeknd Shirt">
+    <h2>Weeknd Shirt</h2>
+    <p>Rs 2,999</p>
+    <button class="btn" onclick="toggleBack()">🔁 View Back</button>
+    <button class="btn" onclick="addToCart('Weeknd Shirt - Rs 2,999')">Add to Cart</button>
+    <button class="btn" onclick="buyNow('Weeknd Shirt')">Buy Now</button>
+  </d
