@@ -1,125 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Korvi - Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Korvi Clothing</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
       background-color: black;
       color: white;
-      text-align: center;
+      font-family: Arial, sans-serif;
     }
-
-    .navbar {
+    header {
       display: flex;
-      background-color: #111;
+      justify-content: space-between;
+      align-items: center;
       padding: 10px 20px;
+      background-color: #111;
     }
-
-    .navbar a {
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    nav a {
+      margin-left: 20px;
       color: white;
       text-decoration: none;
-      margin-right: 20px;
       font-weight: bold;
     }
-
-    .logo {
-      font-size: 48px;
-      font-weight: bold;
-      margin: 40px 0 10px;
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px 20px;
     }
-
-    h2 {
-      margin-top: 30px;
-      font-size: 28px;
-      color: white;
+    .hero h1 {
+      font-size: 3rem;
+      text-align: center;
     }
-
     .products {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
       padding: 20px;
     }
-
-    .product {
-      background-color: #222;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 15px;
-      width: 250px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    .products h2 {
+      margin-bottom: 20px;
     }
-
-    .product img {
+    .shirt {
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      text-align: center;
+      max-width: 300px;
+      width: 100%;
+    }
+    .shirt img {
       width: 100%;
       border-radius: 10px;
     }
-
-    .product h3 {
+    .shirt h3 {
       margin: 10px 0 5px;
-      color: white;
     }
-
-    .product p {
-      color: #ccc;
-      margin: 5px 0;
+    .shirt p {
+      margin: 5px 0 10px;
     }
-
-    .buttons {
-      margin-top: 10px;
+    .button-container {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-
-    .buttons button {
-      background-color: black;
-      color: white;
-      border: 1px solid white;
+    .btn {
       padding: 10px;
-      font-weight: bold;
+      border: 1px solid white;
+      background: black;
+      color: white;
       cursor: pointer;
-      border-radius: 6px;
+      font-weight: bold;
     }
-
-    @media (max-width: 600px) {
-      .product {
-        width: 90%;
-      }
-
-      .logo {
-        font-size: 36px;
+    .btn:hover {
+      background: white;
+      color: black;
+    }
+    @media (min-width: 768px) {
+      .products {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
       }
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo">KORVI</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tops.html">Tops</a>
+      <a href="#" style="color: #25D366;" onclick="alert('For contact, use WhatsApp: 0333 4291050')">Contact</a>
+    </nav>
+  </header>
 
-  <div class="navbar">
-    <a href="tops.html">Tops</a>
+  <div class="hero">
+    <h1>Featured T-Shirts</h1>
   </div>
 
-  <div class="logo">KORVI</div>
-
-  <h2>Featured T-Shirts</h2>
-
   <div class="products">
-    <!-- Wrecked Shirt -->
-    <div class="product">
-      <img src="wrecked.jpg" alt="Wrecked Shirt" />
+    <div class="shirt">
+      <img src="drake.jpg" alt="Drake Shirt">
+      <h3>Drake</h3>
+      <p>Price: Rs. 2999</p>
+      <div class="button-container">
+        <button class="btn">Buy Now</button>
+        <button class="btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="shirt">
+      <img src="weeknd.jpg" alt="Weeknd Shirt">
+      <h3>Weeknd</h3>
+      <p>Price: Rs. 2999</p>
+      <div class="button-container">
+        <button class="btn">Buy Now</button>
+        <button class="btn">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="shirt">
+      <img src="wrecked.jpg" alt="Wrecked Shirt">
       <h3>Wrecked</h3>
-      <p>Rs. 2999</p>
-      <div class="buttons">
-        <button>Buy Now</button>
-        <button>Add to Cart</button>
+      <p>Price: Rs. 2999</p>
+      <div class="button-container">
+        <button class="btn">Buy Now</button>
+        <button class="btn">Add to Cart</button>
       </div>
     </div>
   </div>
-
 </body>
 </html>
