@@ -1,235 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Korvi Clothing - Featured Shirts</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Korvi - Home</title>
   <style>
     body {
-      background-color: black;
-      color: white;
-      font-family: 'Anton', sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
     }
     header {
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-      border-bottom: 1px solid white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #000;
+      border-bottom: 2px solid #333;
     }
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
+    header img {
+      height: 40px;
     }
     nav {
       display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 1rem 0;
+      gap: 15px;
+      flex-wrap: wrap;
     }
     nav a {
-      color: white;
+      color: #fff;
       text-decoration: none;
-      border: 1px solid white;
-      padding: 0.5rem 1rem;
+      font-weight: bold;
+      padding: 8px 12px;
+      background-color: #222;
       border-radius: 5px;
+    }
+    nav a.contact {
+      background-color: green;
+    }
+    .hero {
+      height: 80vh;
+      background: url('hero.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      background: linear-gradient(to right, #fff, #888);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 2em;
+      margin-bottom: 40px;
     }
     .products {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      padding: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
     }
     .product {
-      text-align: center;
-      border: 1px solid white;
-      padding: 1rem;
+      background-color: #1a1a1a;
       border-radius: 10px;
-      width: 90%;
-      max-width: 400px;
+      overflow: hidden;
+      width: 250px;
+      box-shadow: 0 0 10px #000;
     }
     .product img {
       width: 100%;
-      height: auto;
-      border-radius: 10px;
+      height: 280px;
+      object-fit: cover;
     }
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 1rem;
+    .product h3 {
+      margin: 15px 0 10px;
     }
-    .buttons button {
-      background-color: black;
+    .product p {
+      color: #bbb;
+      font-size: 0.9em;
+      padding: 0 15px 10px;
+    }
+    .product button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: 1px solid #fff;
+      background: transparent;
       color: white;
-      border: 1px solid white;
-      padding: 0.5rem;
-      border-radius: 5px;
       cursor: pointer;
+      border-radius: 5px;
     }
-    #cartButton {
+    .cart-icon {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: white;
+      background-color: white;
+      color: black;
       border-radius: 50%;
-      padding: 15px;
-      cursor: pointer;
-      z-index: 100;
-    }
-    #cartButton img {
-      width: 24px;
-      height: 24px;
-    }
-    #cartContainer {
-      display: none;
-      position: fixed;
-      right: 20px;
-      bottom: 80px;
-      background-color: black;
-      color: white;
-      border: 1px solid white;
-      padding: 1rem;
-      max-width: 300px;
-      z-index: 99;
-    }
-    .cart-item {
+      padding: 10px;
+      width: 40px;
+      height: 40px;
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-    }
-    .cart-item button {
-      background-color: red;
-      color: white;
-      border: none;
-      padding: 0.2rem 0.5rem;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
       cursor: pointer;
-      border-radius: 3px;
+    }
+    .cart-popup {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      background-color: #222;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      display: none;
+      max-width: 300px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #000;
+      border-top: 2px solid #333;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>KORVI</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="tops.html">Tops</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
 
-  <section class="products">
-    <h2>Featured Shirts</h2>
+<header>
+  <img src="logo.jpg" alt="Korvi Logo" />
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tops.html">Tops</a>
+    <a href="contact.html" class="contact">Contact</a>
+  </nav>
+</header>
 
+<section class="hero">
+  <h1>Korvi Streetwear</h1>
+</section>
+
+<section class="section">
+  <h2>Featured Shirts</h2>
+  <div class="products">
     <div class="product">
-      <img src="drake.jpg" alt="Drake Shirt">
-      <p>Drake Shirt - Rs.2999</p>
-      <div class="buttons">
-        <button onclick="buyNow('Drake Shirt', 2999)">Buy Now</button>
-        <button onclick="addToCart('Drake Shirt', 2999)">Add to Cart</button>
-      </div>
+      <img src="david.jpg" alt="David Shirt">
+      <h3>David</h3>
+      <p>Dark and minimal for everyday wear.</p>
+      <button onclick="addToCart('David')">Add to Cart</button>
+      <button onclick="buyNow('David')">Buy Now</button>
     </div>
-
     <div class="product">
-      <img src="weeknd.jpg" alt="The Weeknd Shirt">
-      <p>The Weeknd Shirt - Rs.2999</p>
-      <div class="buttons">
-        <button onclick="buyNow('The Weeknd Shirt', 2999)">Buy Now</button>
-        <button onclick="addToCart('The Weeknd Shirt', 2999)">Add to Cart</button>
-      </div>
+      <img src="buried.jpg" alt="Buried Shirt">
+      <h3>Buried</h3>
+      <p>Typography-inspired street fit.</p>
+      <button onclick="addToCart('Buried')">Add to Cart</button>
+      <button onclick="buyNow('Buried')">Buy Now</button>
     </div>
-
     <div class="product">
       <img src="wrecked.jpg" alt="Wrecked Shirt">
-      <p>Wrecked Shirt - Rs.2999</p>
-      <div class="buttons">
-        <button onclick="buyNow('Wrecked Shirt', 2999)">Buy Now</button>
-        <button onclick="addToCart('Wrecked Shirt', 2999)">Add to Cart</button>
-      </div>
+      <h3>Wrecked</h3>
+      <p>For those who walk their own path.</p>
+      <button onclick="addToCart('Wrecked')">Add to Cart</button>
+      <button onclick="buyNow('Wrecked')">Buy Now</button>
     </div>
-  </section>
-
-  <div id="cartButton" onclick="toggleCart()">
-    <img src="cart-icon.png" alt="Cart">
   </div>
+</section>
 
-  <div id="cartContainer">
-    <h3>Cart</h3>
-    <div id="cartItems"></div>
-    <button onclick="checkoutCart()">Complete Order</button>
-  </div>
+<div class="cart-icon" onclick="toggleCart()">🛒</div>
+<div class="cart-popup" id="cartPopup">
+  <strong>Cart:</strong>
+  <ul id="cartItems"></ul>
+  <button onclick="checkout()">Checkout</button>
+</div>
 
-  <script>
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+<footer>
+  &copy; 2025 Korvi Clothing. All rights reserved.
+</footer>
 
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      localStorage.setItem('cart', JSON.stringify(cart));
-      alert(name + ' added to cart');
-      displayCart();
-    }
+<script>
+  let cart = [];
 
-    function toggleCart() {
-      const container = document.getElementById('cartContainer');
-      container.style.display = container.style.display === 'block' ? 'none' : 'block';
-      displayCart();
-    }
+  function addToCart(item) {
+    const size = prompt("Enter size (S/M/L):");
+    if (!size) return;
+    cart.push({ item, size });
+    alert(item + " (" + size + ") added to cart.");
+    updateCart();
+  }
 
-    function displayCart() {
-      const container = document.getElementById('cartItems');
-      container.innerHTML = '';
-      cart.forEach((item, index) => {
-        const div = document.createElement('div');
-        div.className = 'cart-item';
-        div.innerHTML = `${item.name} - Rs.${item.price} <button onclick="removeItem(${index})">X</button>`;
-        container.appendChild(div);
-      });
-    }
+  function updateCart() {
+    const cartList = document.getElementById("cartItems");
+    cartList.innerHTML = "";
+    cart.forEach((entry, index) => {
+      const li = document.createElement("li");
+      li.textContent = `${entry.item} (${entry.size})`;
+      cartList.appendChild(li);
+    });
+  }
 
-    function removeItem(index) {
-      cart.splice(index, 1);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      displayCart();
-    }
+  function toggleCart() {
+    const popup = document.getElementById("cartPopup");
+    popup.style.display = popup.style.display === "block" ? "none" : "block";
+  }
 
-    function buyNow(name, price) {
-      const size = prompt('Select Size: Small, Medium, Large');
-      if (!size) return;
-      const customer = getCustomerDetails();
-      if (customer) sendOrder([{ name, price, size }], customer);
-    }
+  function buyNow(item) {
+    const size = prompt("Enter size (S/M/L):");
+    if (!size) return;
+    sendOrder([{ item, size }]);
+  }
 
-    function checkoutCart() {
-      const size = prompt('Select Size: Small, Medium, Large');
-      if (!size) return;
-      const customer = getCustomerDetails();
-      if (customer) sendOrder(cart.map(item => ({ ...item, size })), customer);
-    }
+  function checkout() {
+    if (cart.length === 0) return alert("Your cart is empty.");
+    sendOrder(cart);
+    cart = [];
+    updateCart();
+  }
 
-    function getCustomerDetails() {
-      const name = prompt('Enter your name');
-      const contact = prompt('Enter contact number');
-      const email = prompt('Enter email');
-      const address = prompt('Enter delivery address');
-      if (!name || !contact || !email || !address) return null;
-      return { name, contact, email, address };
-    }
+  function sendOrder(orderItems) {
+    const name = prompt("Enter your full name:");
+    const address = prompt("Enter your shipping address:");
+    const contact = prompt("Enter your contact number:");
+    const email = prompt("Enter your email:");
 
-    function sendOrder(items, customer) {
-      const emailBody = `New Order\n\nItems:\n${items.map(i => `${i.name} - Rs.${i.price} - Size: ${i.size}`).join('\n')}\n\nCustomer Info:\nName: ${customer.name}\nContact: ${customer.contact}\nEmail: ${customer.email}\nAddress: ${customer.address}`;
-      window.open(`mailto:korviclothing@gmail.com?subject=New Order&body=${encodeURIComponent(emailBody)}`);
-      alert('Order placed!');
-      cart = [];
-      localStorage.removeItem('cart');
-      displayCart();
-    }
+    const orderDetails = orderItems.map(o => `${o.item} (${o.size})`).join(", ");
+    const body = `New Order:\nName: ${name}\nAddress: ${address}\nContact: ${contact}\nEmail: ${email}\nItems: ${orderDetails}`;
 
-    displayCart();
-  </script>
+    const mailtoLink = `mailto:korviclothing@gmail.com?subject=New Order&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  }
+</script>
+
 </body>
 </html>
