@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>COD Checkout - Korvi</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cash on Delivery (COD) Checkout</h1>
+  <form action="https://formsubmit.co/korviclothing@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New COD Order from Korvi Site!">
+    <label>Full Name:</label>
+    <input type="text" name="Name" required>
+
+    <label>Contact Number:</label>
+    <input type="text" name="Phone" required>
+
+    <label>Email:</label>
+    <input type="email" name="Email" required>
+
+    <label>Full Address:</label>
+    <textarea name="Address" required></textarea>
+
+    <label>Selected Size:</label>
+    <select name="Size" required>
+      <option value="Small">Small</option>
+      <option value="Medium">Medium</option>
+      <option value="Large">Large</option>
+    </select>
+
+    <label>Product Name:</label>
+    <input type="text" name="Product" required placeholder="e.g. Drake Shirt">
+
+    <label>Price:</label>
+    <input type="text" name="Price" required placeholder="e.g. 2999">
+
+    <button type="submit">Place Order</button>
+  </form>
+</body>
+</html>
