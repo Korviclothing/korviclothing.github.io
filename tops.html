@@ -125,4 +125,70 @@
     <button class="btn" onclick="toggleBack()">🔁 View Back</button>
     <button class="btn" onclick="addToCart('Weeknd Shirt - Rs 2,999')">Add to Cart</button>
     <button class="btn" onclick="buyNow('Weeknd Shirt')">Buy Now</button>
-  </d
+  </div>
+
+  <div class="shirt">
+    <img src="wrecked.jpg" alt="Wrecked Shirt">
+    <h2>Wrecked Shirt</h2>
+    <p>Rs 2,999</p>
+    <button class="btn" onclick="addToCart('Wrecked Shirt - Rs 2,999')">Add to Cart</button>
+    <button class="btn" onclick="buyNow('Wrecked Shirt')">Buy Now</button>
+  </div>
+
+  <!-- Cart Icon -->
+  <div class="cart-icon" onclick="toggleCart()">
+    <span>🛒</span>
+  </div>
+
+  <!-- Cart Box -->
+  <div class="cart-box" id="cart-box">
+    <h3>Your Cart</h3>
+    <ul id="cart-items"></ul>
+    <button onclick="purchaseAll()">Purchase All (COD)</button>
+  </div>
+
+  <script>
+    let cart = [];
+
+    function toggleCart() {
+      const cartBox = document.getElementById('cart-box');
+      cartBox.style.display = cartBox.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function addToCart(item) {
+      cart.push(item);
+      updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+      const cartItems = document.getElementById('cart-items');
+      cartItems.innerHTML = '';
+      cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${index + 1}. ${item}`;
+        cartItems.appendChild(li);
+      });
+    }
+
+    function purchaseAll() {
+      const message = cart.length ? cart.join('\n') : 'Cart is empty.';
+      const mailtoLink = `mailto:korviclothing@gmail.com?subject=New%20Order%20(COD)&body=${encodeURIComponent('Order Details:\n' + message + '\n\nName:\nAddress:\nContact:\nEmail:')}`;
+      window.location.href = mailtoLink;
+    }
+
+    function buyNow(itemName) {
+      const mailtoLink = `mailto:korviclothing@gmail.com?subject=Buy Now - ${encodeURIComponent(itemName)}&body=${encodeURIComponent('Name:\nAddress:\nContact:\nEmail:')}`;
+      window.location.href = mailtoLink;
+    }
+
+    function toggleBack() {
+      const img = document.getElementById('weeknd-img');
+      if (img.src.includes('weekndback.jpg')) {
+        img.src = 'weeknd.jpg';
+      } else {
+        img.src = 'weekndback.jpg';
+      }
+    }
+  </script>
+</body>
+</html>
