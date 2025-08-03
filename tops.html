@@ -3,93 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Korvi - Tops</title>
+  <title>Tops - Korvi</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
       background-color: #111;
-      color: #fff;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background-color: #000;
-      border-bottom: 2px solid #333;
-    }
-    header img {
-      height: 40px;
+      color: white;
     }
     nav {
       display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #000;
     }
     nav a {
-      color: #fff;
+      color: white;
       text-decoration: none;
+      margin-right: 20px;
       font-weight: bold;
-      padding: 8px 12px;
-      background-color: #222;
-      border-radius: 5px;
     }
-    .section {
-      padding: 60px 20px;
-      text-align: center;
+    nav a:hover {
+      text-decoration: underline;
     }
-    .products {
+    .tops-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
+      padding: 30px;
     }
-    .product {
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      overflow: hidden;
+    .shirt {
+      margin: 20px;
+      text-align: center;
+    }
+    .shirt img {
       width: 250px;
-      box-shadow: 0 0 10px #000;
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
     }
-    .product img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-    }
-    .product h3 {
-      margin: 15px 0 10px;
-    }
-    .backside {
-      margin-top: -15px;
-      font-size: 0.9em;
-      color: #aaa;
+    .arrow {
+      font-size: 18px;
+      color: #0f0;
+      cursor: pointer;
+      margin-top: 5px;
+      display: inline-block;
     }
   </style>
 </head>
 <body>
-
-<header>
-  <img src="logo.jpg" alt="Korvi Logo" />
   <nav>
     <a href="index.html">Home</a>
+    <a href="tops.html">Tops</a>
   </nav>
-</header>
 
-<section class="section">
-  <h2>All Tops</h2>
-  <div class="products">
-    <div class="product">
+  <div class="tops-container">
+    <div class="shirt">
       <img src="drake.jpg" alt="Drake Shirt">
-      <h3>Drake</h3>
-    <div class="product">
-      <img src="weeknd.jpg" alt="Weeknd Shirt">
-      <h3>Weeknd</h3>
-      <p class="backside">➡️ Back: <a href="weekndback.jpg" target="_blank">View</a></p>
+      <p>DRAKE T-SHIRT</p>
+    </div>
+    <div class="shirt">
+      <img id="weekndImg" src="weeknd.jpg" alt="Weeknd Shirt">
+      <p>WEEKND T-SHIRT</p>
+      <span class="arrow" onclick="toggleWeeknd()">➡️ Show Back</span>
     </div>
   </div>
-</section>
 
+  <script>
+    let showingBack = false;
+    function toggleWeeknd() {
+      const img = document.getElementById("weekndImg");
+      if (!showingBack) {
+        img.src = "weekndback.jpg";
+        event.target.textContent = "⬅️ Show Front";
+      } else {
+        img.src = "weeknd.jpg";
+        event.target.textContent = "➡️ Show Back";
+      }
+      showingBack = !showingBack;
+    }
+  </script>
 </body>
 </html>
-
