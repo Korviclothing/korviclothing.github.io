@@ -1,84 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Korvi Clothing</title>
   <style>
     body {
       background-color: black;
       color: white;
       font-family: Arial, sans-serif;
-      text-align: center;
+      margin: 0;
+      padding: 0;
     }
-    .navbar {
+    header {
       display: flex;
-      justify-content: center;
-      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
       background-color: #111;
-      padding: 15px 0;
     }
-    .navbar a {
+    header nav a {
+      margin: 0 10px;
       color: white;
       text-decoration: none;
       font-weight: bold;
-      padding: 10px 20px;
     }
-    .contact-button {
+    header nav a.contact {
       background-color: green;
-      color: white !important;
+      padding: 5px 10px;
+      border-radius: 5px;
     }
-    .shirt {
-      display: inline-block;
-      margin: 30px;
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
     }
-    .shirt img {
-      width: 200px;
-      height: auto;
+    .product {
+      background-color: white;
+      color: black;
+      margin: 10px;
+      padding: 15px;
+      width: 250px;
+      border-radius: 10px;
+      text-align: center;
     }
-    .price {
-      color: white;
-      margin: 5px 0;
+    .product img {
+      width: 100%;
+      border-radius: 10px;
     }
-    button {
+    .product .buttons {
+      margin-top: 10px;
+    }
+    .buttons button {
       margin: 5px;
-      padding: 8px 16px;
+      padding: 8px 12px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
     }
+    .buy { background-color: #28a745; color: white; }
+    .cart { background-color: #007bff; color: white; }
   </style>
 </head>
 <body>
-  <div class="navbar">
-    <a href="index.html" style="color: white;">Home</a>
-    <a href="tops.html">Tops</a>
-    <a href="contact.html" class="contact-button">Contact</a>
+  <header>
+    <h1>KORVI</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tops.html">Tops</a>
+      <a href="#" class="contact" onclick="contact()">Contact</a>
+    </nav>
+  </header>
+
+  <div class="products">
+    <div class="product">
+      <img src="drake.jpg" alt="Drake Shirt">
+      <p>Drake</p>
+      <p>Rs. 2999</p>
+      <div class="buttons">
+        <button class="buy" onclick="buy('Drake')">Buy Now</button>
+        <button class="cart" onclick="addToCart('Drake')">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="weeknd.jpg" alt="Weeknd Shirt" id="weeknd-front" onclick="flipImage('weeknd')">
+      <p>Weeknd</p>
+      <p>Rs. 2999</p>
+      <div class="buttons">
+        <button class="buy" onclick="buy('Weeknd')">Buy Now</button>
+        <button class="cart" onclick="addToCart('Weeknd')">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="wrecked.jpg" alt="Wrecked Shirt">
+      <p>Wrecked</p>
+      <p>Rs. 2999</p>
+      <div class="buttons">
+        <button class="buy" onclick="buy('Wrecked')">Buy Now</button>
+        <button class="cart" onclick="addToCart('Wrecked')">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="david.jpg" alt="David Shirt">
+      <p>David</p>
+      <p>Rs. 2999</p>
+      <div class="buttons">
+        <button class="buy" onclick="buy('David')">Buy Now</button>
+        <button class="cart" onclick="addToCart('David')">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="buried.jpg" alt="Buried in Thoughts">
+      <p>Buried in Thoughts</p>
+      <p>Rs. 2499</p>
+      <div class="buttons">
+        <button class="buy" onclick="buy('Buried in Thoughts')">Buy Now</button>
+        <button class="cart" onclick="addToCart('Buried in Thoughts')">Add to Cart</button>
+      </div>
+    </div>
   </div>
 
-  <h1>Korvi Clothing</h1>
+  <script>
+    function contact() {
+      alert("For contact, use WhatsApp: 0333 4291050");
+    }
 
-  <div class="shirt">
-    <img src="drake.jpg" alt="Drake Shirt">
-    <div>Drake</div>
-    <div class="price">Rs. 2999</div>
-    <button onclick="window.location.href='cod-checkout.html'">Buy Now</button>
-    <button>Add to Cart</button>
-  </div>
+    function flipImage(shirt) {
+      const img = document.getElementById(shirt + '-front');
+      if (img.src.includes(shirt + '.jpg')) {
+        img.src = shirt + 'back.jpg';
+      } else {
+        img.src = shirt + '.jpg';
+      }
+    }
 
-  <div class="shirt">
-    <img src="weeknd.jpg" alt="Weeknd Shirt">
-    <div>Weeknd</div>
-    <div class="price">Rs. 2999</div>
-    <button onclick="window.location.href='cod-checkout.html'">Buy Now</button>
-    <button>Add to Cart</button>
-  </div>
+    function buy(product) {
+      const size = prompt("Select Size: Small / Medium / Large");
+      if (!size) return;
+      const name = prompt("Enter your name:");
+      const address = prompt("Enter your address:");
+      const contact = prompt("Enter your contact number:");
+      const email = prompt("Enter your email:");
+      const message = `
+New COD Order:
+Product: ${product}
+Size: ${size}
+Name: ${name}
+Address: ${address}
+Contact: ${contact}
+Email: ${email}`;
+      alert("Thank you! Your order has been placed.");
+      // Send details to email manually via backend or Gmail forwarding
+    }
 
-  <div class="shirt">
-    <img src="wrecked.jpg" alt="Wrecked Shirt">
-    <div>Wrecked</div>
-    <div class="price">Rs. 2999</div>
-    <button onclick="window.location.href='cod-checkout.html'">Buy Now</button>
-    <button>Add to Cart</button>
-  </div>
-
-
+    function addToCart(product) {
+      alert(product + " has been added to cart (Cart system coming soon).");
+    }
+  </script>
 </body>
 </html>
-
