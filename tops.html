@@ -3,191 +3,197 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tops - Korvi</title>
+  <title>Korvi Tops</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-    }
-    header {
-      background-color: #000;
-      padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
-    }
-    a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-    }
-    .shirt {
-      margin: 40px auto;
-      max-width: 300px;
-    }
-    .shirt img {
-      width: 100%;
-      border-radius: 10px;
-    }
-    .shirt h2 {
-      margin: 10px 0 5px;
-      font-size: 20px;
-    }
-    .shirt p {
-      margin: 0 0 10px;
-    }
-    .btn {
-      display: block;
-      width: 100%;
-      margin: 5px 0;
-      padding: 10px;
-      border: 1px solid white;
       background-color: black;
       color: white;
-      border-radius: 5px;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      padding: 40px 0 10px;
+    }
+    header h1 {
+      font-size: 40px;
+      margin: 0;
+      font-weight: bold;
+    }
+    .shirts-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 20px;
+    }
+    .shirt {
+      background-color: #111;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 260px;
+      text-align: center;
+    }
+    .shirt img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .shirt h3 {
+      margin: 10px 0 5px;
+    }
+    .price {
+      margin-bottom: 10px;
+      color: white;
+      font-weight: bold;
+    }
+    .button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: black;
+      color: white;
+      border: 2px solid white;
       cursor: pointer;
+      border-radius: 6px;
     }
     .cart-icon {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: white;
+      background-color: white;
       border-radius: 50%;
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      z-index: 999;
+      z-index: 1000;
     }
-    .cart-icon span {
-      font-size: 30px;
-      color: black;
+    .cart-icon img {
+      width: 24px;
+      height: 24px;
     }
-    .cart-box {
-      display: none;
+    #cartModal {
       position: fixed;
-      bottom: 90px;
+      bottom: 80px;
       right: 20px;
-      background: white;
-      color: black;
-      padding: 15px;
-      border-radius: 10px;
-      width: 250px;
-      z-index: 999;
-      max-height: 300px;
-      overflow-y: auto;
-      box-shadow: 0 0 10px rgba(255,255,255,0.2);
-    }
-    .cart-box h3 {
-      margin-top: 0;
-    }
-    .cart-box ul {
-      list-style: none;
-      padding: 0;
-    }
-    .cart-box li {
-      margin-bottom: 10px;
-      text-align: left;
-    }
-    .cart-box button {
-      background: black;
+      background-color: #222;
       color: white;
-      border: 1px solid white;
-      padding: 8px;
-      width: 100%;
-      margin-top: 10px;
-      border-radius: 5px;
-      cursor: pointer;
+      border: 2px solid white;
+      padding: 15px;
+      border-radius: 12px;
+      display: none;
+      z-index: 999;
+    }
+    #cartItems {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html">Home</a> | Tops
+    <h1>Korvi - All Tops</h1>
   </header>
 
-  <div class="shirt">
-    <img src="drake.jpg" alt="Drake Shirt">
-    <h2>Drake Shirt</h2>
-    <p>Rs 2,999</p>
-    <button class="btn" onclick="addToCart('Drake Shirt - Rs 2,999')">Add to Cart</button>
-    <button class="btn" onclick="buyNow('Drake Shirt')">Buy Now</button>
-  </div>
-
-  <div class="shirt">
-    <img id="weeknd-img" src="weeknd.jpg" alt="Weeknd Shirt">
-    <h2>Weeknd Shirt</h2>
-    <p>Rs 2,999</p>
-    <button class="btn" onclick="toggleBack()">🔁 View Back</button>
-    <button class="btn" onclick="addToCart('Weeknd Shirt - Rs 2,999')">Add to Cart</button>
-    <button class="btn" onclick="buyNow('Weeknd Shirt')">Buy Now</button>
-  </div>
-
-  <div class="shirt">
-    <img src="wrecked.jpg" alt="Wrecked Shirt">
-    <h2>Wrecked Shirt</h2>
-    <p>Rs 2,999</p>
-    <button class="btn" onclick="addToCart('Wrecked Shirt - Rs 2,999')">Add to Cart</button>
-    <button class="btn" onclick="buyNow('Wrecked Shirt')">Buy Now</button>
+  <div class="shirts-container">
+    <div class="shirt">
+      <img src="drake.jpg" alt="Drake Shirt" />
+      <h3>Drake</h3>
+      <p class="price">Rs. 2999</p>
+      <button class="button" onclick="buyNow('Drake', 2999)">Buy Now</button>
+      <button class="button" onclick="addToCart('Drake', 2999)">Add to Cart</button>
+    </div>
+    <div class="shirt">
+      <img src="weeknd.jpg" alt="Weeknd Shirt" />
+      <h3>Weeknd</h3>
+      <p class="price">Rs. 2999</p>
+      <button class="button" onclick="buyNow('Weeknd', 2999)">Buy Now</button>
+      <button class="button" onclick="addToCart('Weeknd', 2999)">Add to Cart</button>
+    </div>
+    <div class="shirt">
+      <img src="wrecked.jpg" alt="Wrecked Shirt" />
+      <h3>Wrecked</h3>
+      <p class="price">Rs. 2999</p>
+      <button class="button" onclick="buyNow('Wrecked', 2999)">Buy Now</button>
+      <button class="button" onclick="addToCart('Wrecked', 2999)">Add to Cart</button>
+    </div>
+    <div class="shirt">
+      <img src="david.jpg" alt="David Shirt" />
+      <h3>David</h3>
+      <p class="price">Rs. 2999</p>
+      <button class="button" onclick="buyNow('David', 2999)">Buy Now</button>
+      <button class="button" onclick="addToCart('David', 2999)">Add to Cart</button>
+    </div>
+    <div class="shirt">
+      <img src="thoughts.jpg" alt="Lost in Thoughts Shirt" />
+      <h3>Lost in Thoughts</h3>
+      <p class="price">Rs. 2999</p>
+      <button class="button" onclick="buyNow('Lost in Thoughts', 2999)">Buy Now</button>
+      <button class="button" onclick="addToCart('Lost in Thoughts', 2999)">Add to Cart</button>
+    </div>
   </div>
 
   <!-- Cart Icon -->
   <div class="cart-icon" onclick="toggleCart()">
-    <span>🛒</span>
+    <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart" />
   </div>
 
-  <!-- Cart Box -->
-  <div class="cart-box" id="cart-box">
-    <h3>Your Cart</h3>
-    <ul id="cart-items"></ul>
-    <button onclick="purchaseAll()">Purchase All (COD)</button>
+  <!-- Cart Modal -->
+  <div id="cartModal">
+    <div id="cartItems"></div>
+    <button class="button" onclick="purchaseAll()">Purchase All (COD)</button>
   </div>
 
   <script>
-    let cart = [];
+    const sharedCartKey = 'korviCart';
+
+    function addToCart(item, price) {
+      const cart = JSON.parse(localStorage.getItem(sharedCartKey)) || [];
+      cart.push({ item, price });
+      localStorage.setItem(sharedCartKey, JSON.stringify(cart));
+      alert(`${item} added to cart.`);
+      renderCart();
+    }
 
     function toggleCart() {
-      const cartBox = document.getElementById('cart-box');
-      cartBox.style.display = cartBox.style.display === 'block' ? 'none' : 'block';
+      const modal = document.getElementById("cartModal");
+      modal.style.display = modal.style.display === "block" ? "none" : "block";
+      renderCart();
     }
 
-    function addToCart(item) {
-      cart.push(item);
-      updateCartDisplay();
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem(sharedCartKey)) || [];
+      const cartItems = document.getElementById("cartItems");
+      cartItems.innerHTML = cart.length
+        ? cart.map(c => `<p>${c.item} - Rs. ${c.price}</p>`).join('')
+        : "<p>Cart is empty.</p>";
     }
 
-    function updateCartDisplay() {
-      const cartItems = document.getElementById('cart-items');
-      cartItems.innerHTML = '';
-      cart.forEach((item, index) => {
-        const li = document.createElement('li');
-        li.textContent = `${index + 1}. ${item}`;
-        cartItems.appendChild(li);
-      });
+    function buyNow(item, price) {
+      alert(`Order placed for ${item} via COD. We will contact you soon.`);
     }
 
     function purchaseAll() {
-      const message = cart.length ? cart.join('\n') : 'Cart is empty.';
-      const mailtoLink = `mailto:korviclothing@gmail.com?subject=New%20Order%20(COD)&body=${encodeURIComponent('Order Details:\n' + message + '\n\nName:\nAddress:\nContact:\nEmail:')}`;
-      window.location.href = mailtoLink;
-    }
-
-    function buyNow(itemName) {
-      const mailtoLink = `mailto:korviclothing@gmail.com?subject=Buy Now - ${encodeURIComponent(itemName)}&body=${encodeURIComponent('Name:\nAddress:\nContact:\nEmail:')}`;
-      window.location.href = mailtoLink;
-    }
-
-    function toggleBack() {
-      const img = document.getElementById('weeknd-img');
-      if (img.src.includes('weekndback.jpg')) {
-        img.src = 'weeknd.jpg';
-      } else {
-        img.src = 'weekndback.jpg';
+      const cart = JSON.parse(localStorage.getItem(sharedCartKey)) || [];
+      if (cart.length === 0) {
+        alert("Cart is empty.");
+        return;
       }
+      let message = "Order Summary (COD):\n";
+      let total = 0;
+      cart.forEach(c => {
+        message += `${c.item} - Rs. ${c.price}\n`;
+        total += c.price;
+      });
+      message += `\nTotal: Rs. ${total}\nThank you for shopping!`;
+      alert(message);
+      localStorage.removeItem(sharedCartKey);
+      renderCart();
     }
   </script>
 </body>
