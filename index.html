@@ -1,130 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Korvi Clothing - Home</title>
+  <title>Korvi - Home</title>
   <style>
     body {
+      margin: 0;
+      font-family: Arial, sans-serif;
       background-color: black;
       color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background-color: #111;
-    }
-    header nav a {
-      margin: 0 10px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    header nav a.contact {
-      background-color: green;
-      padding: 5px 10px;
-      border-radius: 5px;
-    }
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 20px;
-    }
-    .product {
-      background-color: white;
-      color: black;
-      margin: 10px;
-      padding: 15px;
-      width: 250px;
-      border-radius: 10px;
       text-align: center;
     }
+
+    .navbar {
+      display: flex;
+      background-color: #111;
+      padding: 10px 20px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-right: 20px;
+      font-weight: bold;
+    }
+
+    .logo {
+      font-size: 48px;
+      font-weight: bold;
+      margin: 40px 0 10px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 28px;
+      color: white;
+    }
+
+    .products {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .product {
+      background-color: #222;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+
     .product img {
       width: 100%;
       border-radius: 10px;
     }
-    .product .buttons {
+
+    .product h3 {
+      margin: 10px 0 5px;
+      color: white;
+    }
+
+    .product p {
+      color: #ccc;
+      margin: 5px 0;
+    }
+
+    .buttons {
       margin-top: 10px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
+
     .buttons button {
-      padding: 10px;
-      font-weight: bold;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
       background-color: black;
       color: white;
+      border: 1px solid white;
+      padding: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .product {
+        width: 90%;
+      }
+
+      .logo {
+        font-size: 36px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>KORVI</h1>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="tops.html">Tops</a>
-      <a href="#" class="contact" onclick="contact()">Contact</a>
-    </nav>
-  </header>
+
+  <div class="navbar">
+    <a href="tops.html">Tops</a>
+  </div>
+
+  <div class="logo">KORVI</div>
+
+  <h2>Featured T-Shirts</h2>
 
   <div class="products">
+    <!-- Wrecked Shirt -->
     <div class="product">
-      <img src="drake.jpg" alt="Drake Shirt">
-      <p>Drake</p>
+      <img src="wrecked.jpg" alt="Wrecked Shirt" />
+      <h3>Wrecked</h3>
       <p>Rs. 2999</p>
       <div class="buttons">
-        <button onclick="buy('Drake')">Buy Now</button>
-        <button onclick="addToCart('Drake')">Add to Cart</button>
-      </div>
-    </div>
-    <div class="product">
-      <img src="weeknd.jpg" alt="Weeknd Shirt" id="weeknd-front" onclick="flipImage('weeknd')">
-      <p>Weeknd</p>
-      <p>Rs. 2999</p>
-      <div class="buttons">
-        <button onclick="buy('Weeknd')">Buy Now</button>
-        <button onclick="addToCart('Weeknd')">Add to Cart</button>
+        <button>Buy Now</button>
+        <button>Add to Cart</button>
       </div>
     </div>
   </div>
 
-  <script>
-    function contact() {
-      alert("For contact, use WhatsApp: 0333 4291050");
-    }
-
-    function flipImage(shirt) {
-      const img = document.getElementById(shirt + '-front');
-      if (img.src.includes(shirt + '.jpg')) {
-        img.src = shirt + 'back.jpg';
-      } else {
-        img.src = shirt + '.jpg';
-      }
-    }
-
-    function buy(product) {
-      const size = prompt("Select Size: Small / Medium / Large");
-      if (!size) return;
-      const name = prompt("Enter your name:");
-      const address = prompt("Enter your address:");
-      const contact = prompt("Enter your contact number:");
-      const email = prompt("Enter your email:");
-      const message = `\nNew COD Order:\nProduct: ${product}\nSize: ${size}\nName: ${name}\nAddress: ${address}\nContact: ${contact}\nEmail: ${email}`;
-      alert("Thank you! Your order has been placed.");
-    }
-
-    function addToCart(product) {
-      alert(product + " has been added to cart (Cart system coming soon).");
-    }
-  </script>
 </body>
 </html>
