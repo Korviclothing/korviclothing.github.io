@@ -3,163 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Korvi Clothing - Tops</title>
+  <title>Korvi - Tops</title>
   <style>
     body {
+      margin: 0;
+      font-family: Arial, sans-serif;
       background-color: black;
       color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
     }
-    header {
+
+    .navbar {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
       background-color: #111;
+      padding: 10px 20px;
     }
-    header nav a {
-      margin: 0 10px;
+
+    .navbar a {
       color: white;
       text-decoration: none;
+      margin-right: 20px;
       font-weight: bold;
     }
-    header nav a.contact {
-      background-color: green;
-      padding: 5px 10px;
-      border-radius: 5px;
-    }
-    header nav a.active {
-      text-decoration: underline;
-    }
+
     .products {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       padding: 20px;
     }
+
     .product {
-      background-color: white;
-      color: black;
-      margin: 10px;
-      padding: 15px;
-      width: 250px;
+      background-color: #222;
       border-radius: 10px;
+      padding: 15px;
+      margin: 15px;
+      width: 250px;
       text-align: center;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
     }
+
     .product img {
       width: 100%;
       border-radius: 10px;
     }
-    .product .buttons {
-      margin-top: 10px;
+
+    .product h3 {
+      margin: 10px 0 5px;
+      color: white;
     }
+
+    .product p {
+      color: #ccc;
+      margin: 5px 0;
+    }
+
+    .buttons {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     .buttons button {
-      margin: 5px;
-      padding: 8px 12px;
+      background-color: black;
+      color: white;
+      border: 1px solid white;
+      padding: 10px;
       font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .arrow-btn {
+      background-color: transparent;
       border: none;
-      border-radius: 5px;
+      color: #aaa;
+      font-size: 18px;
+      margin-top: 5px;
       cursor: pointer;
     }
-    .buy { background-color: #28a745; color: white; }
-    .cart { background-color: #007bff; color: white; }
+
+    @media (max-width: 600px) {
+      .product {
+        width: 90%;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>KORVI</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="tops.html" class="active">Tops</a>
-      <a href="#" class="contact" onclick="contact()">Contact</a>
-    </nav>
-  </header>
+  <div class="navbar">
+    <a href="index.html">Home</a>
+  </div>
 
   <div class="products">
+    <!-- Drake Shirt -->
     <div class="product">
-      <img src="drake.jpg" alt="Drake Shirt">
-      <p>Drake</p>
+      <img src="drake.jpg" alt="Drake Shirt" />
+      <h3>Drake</h3>
       <p>Rs. 2999</p>
       <div class="buttons">
-        <button class="buy" onclick="buy('Drake')">Buy Now</button>
-        <button class="cart" onclick="addToCart('Drake')">Add to Cart</button>
+        <button>Buy Now</button>
+        <button>Add to Cart</button>
       </div>
     </div>
+
+    <!-- Weeknd Shirt with toggle -->
     <div class="product">
-      <img src="weeknd.jpg" alt="Weeknd Shirt" id="weeknd-front" onclick="flipImage('weeknd')">
-      <p>Weeknd</p>
+      <img id="weeknd-img" src="weeknd.jpg" alt="Weeknd Shirt" />
+      <h3>Weeknd</h3>
       <p>Rs. 2999</p>
       <div class="buttons">
-        <button class="buy" onclick="buy('Weeknd')">Buy Now</button>
-        <button class="cart" onclick="addToCart('Weeknd')">Add to Cart</button>
+        <button>Buy Now</button>
+        <button>Add to Cart</button>
+        <button class="arrow-btn" onclick="toggleWeeknd()">⟲ View Back</button>
       </div>
     </div>
+
+    <!-- Wrecked Shirt -->
     <div class="product">
-      <img src="wrecked.jpg" alt="Wrecked Shirt">
-      <p>Wrecked</p>
+      <img src="wrecked.jpg" alt="Wrecked Shirt" />
+      <h3>Wrecked</h3>
       <p>Rs. 2999</p>
       <div class="buttons">
-        <button class="buy" onclick="buy('Wrecked')">Buy Now</button>
-        <button class="cart" onclick="addToCart('Wrecked')">Add to Cart</button>
+        <button>Buy Now</button>
+        <button>Add to Cart</button>
       </div>
     </div>
+
+    <!-- David Shirt -->
     <div class="product">
-      <img src="david.jpg" alt="David Shirt">
-      <p>David</p>
+      <img src="david.jpg" alt="David Shirt" />
+      <h3>David</h3>
       <p>Rs. 2999</p>
       <div class="buttons">
-        <button class="buy" onclick="buy('David')">Buy Now</button>
-        <button class="cart" onclick="addToCart('David')">Add to Cart</button>
+        <button>Buy Now</button>
+        <button>Add to Cart</button>
       </div>
     </div>
+
+    <!-- Buried in Thoughts Shirt -->
     <div class="product">
-      <img src="buried.jpg" alt="Buried in Thoughts">
-      <p>Buried in Thoughts</p>
+      <img src="buried.jpg" alt="Buried in Thoughts Shirt" />
+      <h3>Buried in Thoughts</h3>
       <p>Rs. 2499</p>
       <div class="buttons">
-        <button class="buy" onclick="buy('Buried in Thoughts')">Buy Now</button>
-        <button class="cart" onclick="addToCart('Buried in Thoughts')">Add to Cart</button>
+        <button>Buy Now</button>
+        <button>Add to Cart</button>
       </div>
     </div>
   </div>
 
   <script>
-    function contact() {
-      alert("For contact, use WhatsApp: 0333 4291050");
-    }
-
-    function flipImage(shirt) {
-      const img = document.getElementById(shirt + '-front');
-      if (img.src.includes(shirt + '.jpg')) {
-        img.src = shirt + 'back.jpg';
+    let showingBack = false;
+    function toggleWeeknd() {
+      const img = document.getElementById('weeknd-img');
+      if (showingBack) {
+        img.src = 'weeknd.jpg';
       } else {
-        img.src = shirt + '.jpg';
+        img.src = 'weekndback.jpg';
       }
-    }
-
-    function buy(product) {
-      const size = prompt("Select Size: Small / Medium / Large");
-      if (!size) return;
-      const name = prompt("Enter your name:");
-      const address = prompt("Enter your address:");
-      const contact = prompt("Enter your contact number:");
-      const email = prompt("Enter your email:");
-      const message = `
-New COD Order:
-Product: ${product}
-Size: ${size}
-Name: ${name}
-Address: ${address}
-Contact: ${contact}
-Email: ${email}`;
-      alert("Thank you! Your order has been placed.");
-      // Send details to email manually via backend or Gmail forwarding
-    }
-
-    function addToCart(product) {
-      alert(product + " has been added to cart (Cart system coming soon).");
+      showingBack = !showingBack;
     }
   </script>
 </body>
