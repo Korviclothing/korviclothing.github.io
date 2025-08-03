@@ -1,111 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Korvi - Tops</title>
+  <title>Tops - Korvi</title>
   <style>
     body {
       background-color: black;
       color: white;
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      text-align: center;
     }
-    header {
-      background-color: #111;
-      padding: 10px;
+    .navbar {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      padding: 20px;
+      background-color: #111;
+      padding: 15px 0;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 20px;
     }
     .shirt {
-      background-color: #222;
-      padding: 10px;
-      border-radius: 10px;
-      text-align: center;
-      position: relative;
-      max-width: 200px;
+      display: inline-block;
+      margin: 30px;
     }
     .shirt img {
-      width: 100%;
-      border-radius: 8px;
+      width: 200px;
+      height: auto;
     }
-    .caption {
-      background-color: white;
-      color: black;
-      padding: 5px;
-      margin-top: 8px;
-      border-radius: 5px;
+    .price {
+      color: white;
+      margin: 5px 0;
     }
-    .arrow {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: white;
-      color: black;
-      border: none;
-      border-radius: 50%;
-      width: 25px;
-      height: 25px;
+    button {
+      margin: 5px;
+      padding: 8px 16px;
       cursor: pointer;
-      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <header>
+  <div class="navbar">
     <a href="index.html">Home</a>
-    <h1>Tops</h1>
-  </header>
-
-  <div class="container">
-    <div class="shirt">
-      <img src="drake.jpg" id="drake-img" alt="Drake Shirt">
-      <button class="arrow" onclick="toggleBack('drake-img', 'drake.jpg', 'drakeback.jpg')">→</button>
-      <div class="caption">Drake T-Shirt</div>
-    </div>
-
-    <div class="shirt">
-      <img src="weeknd.jpg" id="weeknd-img" alt="Weeknd Shirt">
-      <button class="arrow" onclick="toggleBack('weeknd-img', 'weeknd.jpg', 'weekndback.jpg')">→</button>
-      <div class="caption">Weeknd T-Shirt</div>
-    </div>
-
-    <div class="shirt">
-      <img src="wrecked.jpg" alt="Wrecked Shirt">
-      <div class="caption">WRECKED T-Shirt</div>
-    </div>
-
-    <div class="shirt">
-      <img src="david.jpg" alt="David Shirt">
-      <div class="caption">DAVID by Michelangelo T-Shirt</div>
-    </div>
-
-    <div class="shirt">
-      <img src="buried.jpg" alt="Buried in Thoughts Shirt">
-      <div class="caption">Buried in Thoughts T-Shirt</div>
-    </div>
+    <a href="tops.html">Tops</a>
+    <a href="contact.html" class="contact-button" style="background-color: green;">Contact</a>
   </div>
 
-  <script>
-    function toggleBack(id, front, back) {
-      const img = document.getElementById(id);
-      img.src = img.src.includes(back) ? front : back;
-    }
-  </script>
+  <h1>All Tops</h1>
+
+  <div class="shirt">
+    <img src="drake.jpg" alt="Drake Shirt">
+    <div>Drake</div>
+    <div class="price">Rs. 2999</div>
+    <button onclick="window.location.href='cod-checkout.html'">Buy Now</button>
+    <button>Add to Cart</button>
+  </div>
+
+  <div class="shirt">
+    <img src="weeknd.jpg" alt="Weeknd Shirt">
+    <div>Weeknd</div>
+    <div class="price">Rs. 2999</div>
+    <button onclick="window.location.href='cod-checkout.html'">Buy Now</button>
+    <button>Add to Cart</button>
+  </div>
+
+  <div class="shirt">
+    <img src="wrecked.jpg" alt="Wrecked Shirt">
+    <div>Wrecked</div>
+    <div class="price">Rs. 2999</div>
+    <button onclick="window.location.href='cod-checkout.html'">Buy Now</button>
+    <button>Add to Cart</button>
+  </div>
+
+  <div class="shirt">
+    <img src="david.jpg" alt="David Shirt">
+    <div>David</div>
+    <div class="price">Rs. 2999</div>
+    <button onclick="window.location.href='cod-checkout.html'">Buy Now</button>
+    <button>Add to Cart</button>
+  </div>
+
+  <div class="shirt">
+    <img src="buried.jpg" alt="Buried Shirt">
+    <div>Buried in Thoughts</div>
+    <div class="price">Rs. 2499</div>
+    <button onclick="window.location.href='cod-checkout.html'">Buy Now</button>
+    <button>Add to Cart</button>
+  </div>
 </body>
 </html>
