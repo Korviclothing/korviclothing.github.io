@@ -1,139 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Korvi - Home</title>
+  <title>Korvi Clothing</title>
   <style>
     body {
-      margin: 0;
+      background-color: black;
+      color: white;
       font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
       background-color: #111;
-      color: #fff;
+      padding: 15px 0;
     }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background-color: #000;
-      border-bottom: 2px solid #333;
-    }
-    header img {
-      height: 40px;
-    }
-    nav {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: #fff;
+    .navbar a {
+      color: white;
       text-decoration: none;
       font-weight: bold;
-      padding: 8px 12px;
-      background-color: #222;
-      border-radius: 5px;
+      padding: 10px 20px;
     }
-    nav a.contact {
+    .contact-button {
       background-color: green;
+      color: white !important;
     }
-    .hero {
-      height: 80vh;
-      background: url('hero.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
+    .shirt {
+      display: inline-block;
+      margin: 30px;
     }
-    .hero h1 {
-      font-size: 3em;
-      background: linear-gradient(to right, #fff, #888);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .shirt img {
+      width: 200px;
+      height: auto;
     }
-    .section {
-      padding: 60px 20px;
-      text-align: center;
+    .price {
+      color: white;
+      margin: 5px 0;
     }
-    .section h2 {
-      font-size: 2em;
-      margin-bottom: 40px;
-    }
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-    .product {
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      overflow: hidden;
-      width: 250px;
-      box-shadow: 0 0 10px #000;
-    }
-    .product img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-    }
-    .product h3 {
-      margin: 15px 0 10px;
-    }
-    .product p {
-      color: #bbb;
-      font-size: 0.9em;
-      padding: 0 15px 20px;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #000;
-      border-top: 2px solid #333;
+    button {
+      margin: 5px;
+      padding: 8px 16px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-
-<header>
-  <img src="logo.jpg" alt="Korvi Logo" />
-  <nav>
-    <a href="index.html">Home</a>
+  <div class="navbar">
+    <a href="index.html" style="color: white;">Home</a>
     <a href="tops.html">Tops</a>
-    <a href="contact.html" class="contact">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1>Korvi Streetwear</h1>
-</section>
-
-<section class="section">
-  <h2>Featured Shirts</h2>
-  <div class="products">
-    <div class="product">
-      <img src="david.jpg" alt="David Shirt">
-      <h3>David</h3>
-      <p>Dark and minimal for everyday wear.</p>
-    </div>
-    <div class="product">
-      <img src="buried.jpg" alt="Buried Shirt">
-      <h3>Buried</h3>
-      <p>Typography-inspired street fit.</p>
-    </div>
-    <div class="product">
-      <img src="wrecked.jpg" alt="Wrecked Shirt">
-      <h3>Wrecked</h3>
-      <p>For those who walk their own path.</p>
-    </div>
+    <a href="contact.html" class="contact-button">Contact</a>
   </div>
-</section>
 
-<footer>
-  &copy; 2025 Korvi Clothing. All rights reserved.
-</footer>
+  <h1>Korvi Clothing</h1>
 
+  <div class="shirt">
+    <img src="drake.jpg" alt="Drake Shirt">
+    <div>Drake</div>
+    <div class="price">Rs. 2999</div>
+    <button onclick="window.location.href='cod-checkout.html'">Buy Now</button>
+    <button>Add to Cart</button>
+  </div>
+
+  <div class="shirt">
+    <img src="weeknd.jpg" alt="Weeknd Shirt">
+    <div>Weeknd</div>
+    <div class="price">Rs. 2999</div>
+    <button onclick="window.location.href='cod-checkout.html'">Buy Now</button>
+    <button>Add to Cart</button>
+  </div>
+
+  <div class="shirt">
+    <img src="wrecked.jpg" alt="Wrecked Shirt">
+    <div>Wrecked</div>
+    <div class="price">Rs. 2999</div>
+    <button onclick="window.location.href='cod-checkout.html'">Buy Now</button>
+    <button>Add to Cart</button>
+  </div>
+
+  <div class="shirt">
+    <img src="david.jpg" alt="David Shirt">
+    <div>David</div>
+    <div class="price">Rs. 2999</div>
+    <button onclick="window.location.href='cod-checkout.html'">Buy Now</button>
+    <button>Add to Cart</button>
+  </div>
+
+  <div class="shirt">
+    <img src="buried.jpg" alt="Buried Shirt">
+    <div>Buried in Thoughts</div>
+    <div class="price">Rs. 2499</div>
+    <button onclick="window.location.href='cod-checkout.html'">Buy Now</button>
+    <button>Add to Cart</button>
+  </div>
 </body>
 </html>
