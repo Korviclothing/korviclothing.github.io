@@ -3,88 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tops - Korvi</title>
+  <title>Tops - Korvi Clothing</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #111;
-      color: white;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-      background-color: #000;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-right: 20px;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .tops-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 30px;
-    }
-    .shirt {
-      margin: 20px;
-      text-align: center;
-    }
-    .shirt img {
-      width: 250px;
-      height: auto;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .arrow {
-      font-size: 18px;
-      color: #0f0;
-      cursor: pointer;
-      margin-top: 5px;
-      display: inline-block;
-    }
-  </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="tops.html">Tops</a>
-  </nav>
-
-  <div class="tops-container">
-    <div class="shirt">
-      <img src="drake.jpg" alt="Drake Shirt">
-      <p>DRAKE T-SHIRT</p>
+  <header>
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="tops.html" class="active">Tops</a>
     </div>
-    <div class="shirt">
-      <img id="weekndImg" src="weeknd.jpg" alt="Weeknd Shirt">
-      <p>WEEKND T-SHIRT</p>
-      <span class="arrow" onclick="toggleWeeknd()">➡️ Show Back</span>
-    </div>
-  </div>
+  </header>
 
-  <script>
-    let showingBack = false;
-    function toggleWeeknd() {
-      const img = document.getElementById("weekndImg");
-      if (!showingBack) {
-        img.src = "weekndback.jpg";
-        event.target.textContent = "⬅️ Show Front";
-      } else {
-        img.src = "weeknd.jpg";
-        event.target.textContent = "➡️ Show Back";
-      }
-      showingBack = !showingBack;
-    }
-  </script>
+  <main>
+    <h1>Our Top Collection</h1>
+    <div class="products">
+      
+      <div class="product">
+        <img src="add image here" alt="David Shirt">
+        <p>David by Michelangelo T-Shirt</p>
+      </div>
+
+      <div class="product">
+        <img src="add image here" alt="Buried Shirt">
+        <p>Buried in Thoughts T-Shirt</p>
+      </div>
+
+      <div class="product">
+        <img src="add image here" alt="Wrecked Shirt">
+        <p>WRECKED T-Shirt</p>
+      </div>
+
+      <div class="product">
+        <img src="drake.jpg" alt="Drake Shirt">
+        <p>DRAKE T-Shirt</p>
+      </div>
+
+      <div class="product">
+        <img src="weeknd.jpg" alt="Weeknd Shirt">
+        <p>WEEKND T-Shirt</p>
+        <a href="weekndback.jpg" target="_blank">➡</a>
+      </div>
+
+    </div>
+  </main>
 </body>
 </html>
