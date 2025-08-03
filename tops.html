@@ -5,6 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tops - Korvi Clothing</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .nav a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+    .product {
+      text-align: center;
+    }
+    .product img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+    }
+    .arrow {
+      display: inline-block;
+      font-size: 24px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -15,21 +44,21 @@
   </header>
 
   <main>
-    <h1>Our Top Collection</h1>
+    <h1 style="text-align:center;">Our Top Collection</h1>
     <div class="products">
-      
+
       <div class="product">
-        <img src="add image here" alt="David Shirt">
+        <img src="david.jpg" alt="David Shirt">
         <p>David by Michelangelo T-Shirt</p>
       </div>
 
       <div class="product">
-        <img src="add image here" alt="Buried Shirt">
+        <img src="buried.jpg" alt="Buried Shirt">
         <p>Buried in Thoughts T-Shirt</p>
       </div>
 
       <div class="product">
-        <img src="add image here" alt="Wrecked Shirt">
+        <img src="wrecked.jpg" alt="Wrecked Shirt">
         <p>WRECKED T-Shirt</p>
       </div>
 
@@ -39,12 +68,26 @@
       </div>
 
       <div class="product">
-        <img src="weeknd.jpg" alt="Weeknd Shirt">
+        <img id="weekndImg" src="weeknd.jpg" alt="Weeknd Shirt">
         <p>WEEKND T-Shirt</p>
-        <a href="weekndback.jpg" target="_blank">➡</a>
+        <span class="arrow" onclick="toggleWeeknd()">↺</span>
       </div>
 
     </div>
   </main>
+
+  <script>
+    let showingBack = false;
+    function toggleWeeknd() {
+      const img = document.getElementById("weekndImg");
+      if (!showingBack) {
+        img.src = "weekndback.jpg";
+        showingBack = true;
+      } else {
+        img.src = "weeknd.jpg";
+        showingBack = false;
+      }
+    }
+  </script>
 </body>
 </html>
